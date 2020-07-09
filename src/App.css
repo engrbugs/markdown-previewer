@@ -1,68 +1,53 @@
-.App {
-  text-align: left;
+html body {
   background-color: #1E1F26;
- 
+}
+
+.App {
   color: whitesmoke;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ht:76vh;
 }
 
-.main {
-  max-width: 100ch;
-}
 .App-header {
-  /* background-color: #282c34; */
- 
-  /* font-size: calc(10px + 2vmin); */
+  justify-content: center;
+  text-align: center;
   color: white;
+  margin-top: 24px;
 }
 
-.container {
-  flex-basis: 50%;
-  padding: 5px;
+.btn-clear {
+  justify-content: flex-end;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-sizing: border-box;
+  margin: 4px 16px 12px auto;
+  display: inline-flex;
+  justify-content: end;
+}
+
+#editor {
+  height: var(--ht);
+  background-color: #1D1E22;
+  color: #DDCA7E;
+  font-family: 'Fira Code', monospace;
+}
+
+#editor:focus {
+  outline: none !important;
+  border: 1px solid #2e86de;
 }
 
 .preview {
   background-color: white;
   color: black;
-  height: 400px;
+  max-height: var(--ht);
   -moz-appearance: textfield-multiline;
   -webkit-appearance: textarea;
   border: 1px solid gray;
   font: medium -moz-fixed;
   font: -webkit-small-control;
-  /* overflow: auto; */
-  padding: 2px;
-  /* resize: both; */
-  /* width: 400px; */
+  overflow: auto;
 }
 
 .preview img {
-  max-width: 40%;
-}
-
-#editor {
-  height: 400px;
-  background-color: #1D1E22;
-  color: #DDCA7E;
-  /* margin-top: 5px; */
-    /* padding: 0.6em; */
-    /* border: 1px solid #ccc; */
-    /* overflow: auto; */
-    /* flex-grow: 1; */
-    /* flex-shrink: 1; */
-}
-
-#editor:focus {
-  height: 400px;
-  /* outline: none !important; */
-  /* padding: 2px; */
-  background-color: #1D1E22;
-  /* border:1px solid red; */
-  /* box-shadow: 0 0 10px #719ECE; */
-  color: #DDCA7E;
+  max-width: 80%;
 }
 
