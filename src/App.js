@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import marked from 'marked';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,7 +53,6 @@ And here. | Okay. | I think we get it.
 `
 
 
-
 class App extends React.Component {
   state = {
     text: initialMarkdown
@@ -66,38 +64,42 @@ class App extends React.Component {
     })
   }
 
+  clearInput = () => {
+    this.setState({
+      text: ''
+    })
+  }
   render() {
     let { text } = this.state;
     let markdown = marked(text, { breaks: true });
     return (
-        
-        <div className="App container-fluid h-100">
+      <div className="App container-fluid h-100">
         <div className="App-header row">
           <h1>Markdown Editor</h1>
         </div>
-        <div className="main row">
-          <div className="col pr-2">
-              <div className="row" style={{ height: "40px" }}>
-              <h5 className="ml-3" style={{ marginTop: "12px" }}>Input</h5>
-              <button className="btn btn-clear btn-outline-info btn-sm">Clear</button>
-              </div>
-              <textarea id="editor" className="form-control" value={text} onChange={this.handleChange} />
-          </div>
-          <div className="col pl-2">
+      <div className="main row">
+        <div className="col pr-2">
           <div className="row" style={{ height: "40px" }}>
-          <h5 className="ml-3" style={{ marginTop: "12px" }}>Markdown</h5>
-            </div>
-            <div id="preview" className="preview rounded" dangerouslySetInnerHTML={{__html: markdown}} contenteditable>
-                </div>
+            <h5 className="ml-3" style={{ marginTop: "12px" }}>Input</h5>
+            <button className="btn btn-clear btn-outline-info btn-sm"
+              onClick={this.clearInput}>Clear</button>
+          </div>
+          <textarea id="editor" spellCheck="false" 
+            className="form-control" value={text} 
+            onChange={this.handleChange} />
+        </div>
+        <div className="col pl-2">
+          <div className="row" style={{ height: "40px" }}>
+            <h5 className="ml-3" style={{ marginTop: "12px" }}>Markdown</h5>
+          </div>
+          <div id="preview" className="preview rounded" 
+            dangerouslySetInnerHTML={{__html: markdown}} contenteditable>
           </div>
         </div>
-        </div>
-        
+      </div>
+    </div>
     );
   }
 }
-
-
-
 
 export default App;

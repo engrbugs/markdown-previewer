@@ -39,6 +39,7 @@ html body {
   background-color: white;
   color: black;
   max-height: var(--ht);
+  min-height: var(--ht);
   -moz-appearance: textfield-multiline;
   -webkit-appearance: textarea;
   border: 1px solid gray;
